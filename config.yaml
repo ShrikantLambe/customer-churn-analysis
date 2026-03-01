@@ -1,0 +1,22 @@
+# config.yaml
+# Configuration file for churn prediction project
+
+random_seed: 42
+
+model:
+  logistic_regression:
+    max_iter: 1000
+    solver: lbfgs
+  random_forest:
+    n_estimators: 100
+    max_depth: null
+    random_state: 42
+
+train_test_split:
+  test_size: 0.2
+  stratify: true
+
+output:
+  model_dir: models/
+  model_version: v1
+  log_dir: logs/

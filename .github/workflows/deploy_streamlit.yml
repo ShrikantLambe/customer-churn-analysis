@@ -1,0 +1,25 @@
+name: Deploy Streamlit App
+
+on:
+    push:
+        branches: [main]
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.10"
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt
+            - name: Deploy to Streamlit Community Cloud
+              env:
+                  STREAMLIT_CLOUD_EMAIL: ${{ secrets.STREAMLIT_CLOUD_EMAIL }}
+                  STREAMLIT_CLOUD_PASSWORD: ${{ secrets.STREAMLIT_CLOUD_PASSWORD }}
+              run: |
+                  echo "Automated deployment step here (see Streamlit docs for details)"
