@@ -1,12 +1,17 @@
+
+import logging
+import pickle
+import numpy as np
+import streamlit as st
+from src.config_utils import load_config
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 """
 Streamlit app for Customer Churn Prediction
 """
-import streamlit as st
-import numpy as np
-import pickle
-import logging
-import os
-from src.config_utils import load_config
+
 
 # --- UI Section ---
 st.set_page_config(page_title="Customer Churn Predictor", layout="centered")

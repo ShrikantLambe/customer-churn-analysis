@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+src/customer_churn_analysis.egg-info/PKG-INFO
+src/customer_churn_analysis.egg-info/SOURCES.txt
+src/customer_churn_analysis.egg-info/dependency_links.txt
+src/customer_churn_analysis.egg-info/requires.txt
+src/customer_churn_analysis.egg-info/top_level.txt
+tests/test_business_impact.py
+tests/test_evaluation_utils.py
+tests/test_model_training.py
+tests/test_preprocessing.py
+tests/test_streamlit_app.py

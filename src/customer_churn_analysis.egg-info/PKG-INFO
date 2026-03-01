@@ -1,3 +1,20 @@
+Metadata-Version: 2.4
+Name: customer-churn-analysis
+Version: 0.1.0
+Summary: A production-ready customer churn analysis and prediction package.
+Author-email: Your Name <your@email.com>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: shap
+Requires-Dist: streamlit
+Requires-Dist: joblib
+Requires-Dist: pyyaml
+
 # Customer Churn Analysis
 
 A production-ready, modular, and well-documented machine learning project for predicting customer churn using the Telco Customer Churn dataset.
