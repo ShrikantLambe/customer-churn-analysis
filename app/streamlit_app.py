@@ -110,10 +110,12 @@ with center_col:
         st.header("Prediction Result")
         st.markdown(
             f"**Churn Probability:** <span style='font-size:1.5em'>{prob:.2%}</span>",
-            unsafe_allow_html=True)
+            unsafe_allow_html=True
+        )
         st.markdown(
             f"**Risk Category:** <span style='color:{color}; font-weight:bold; font-size:1.3em'>{risk}</span>",
-            unsafe_allow_html=True)
+            unsafe_allow_html=True
+        )
         st.info(
             "Interpretation: High risk customers may benefit from targeted retention offers."
         )
