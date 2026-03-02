@@ -19,8 +19,10 @@ def plot_confusion_matrix(y_true, y_pred, class_names=None, title='Confusion Mat
     ax.set(
         xticks=np.arange(len(class_names)),
         yticks=np.arange(len(class_names)),
-        xticklabels=class_names, yticklabels=class_names,
-        ylabel='True label', xlabel='Predicted label',
+        xticklabels=class_names,
+        yticklabels=class_names,
+        ylabel='True label',
+        xlabel='Predicted label',
         title=title
     )
     plt.setp(ax.get_xticklabels(), rotation=45,

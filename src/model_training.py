@@ -2,12 +2,11 @@
 Model training module for Customer Churn Prediction
 """
 import pickle
-import logging
+import os
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
-from src.config_utils import load_config, set_random_seed
 
 
 def train_logistic_regression(X_train, y_train, config, cv=5):

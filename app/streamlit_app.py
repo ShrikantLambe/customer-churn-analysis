@@ -6,7 +6,6 @@ import logging
 import os
 import pandas as pd
 
-
 st.set_page_config(page_title="Customer Churn Predictor", layout="wide")
 
 st.header("Enter Customer Details")
@@ -53,10 +52,19 @@ with billing_cols:
         "Electronic check", "Mailed check", "Bank transfer (automatic)", "Credit card (automatic)"])
     MonthlyCharges = st.number_input(
         "Monthly Charges ($)", min_value=0.0, max_value=200.0, value=70.0)
+    PaymentMethod = st.selectbox(
+        "Payment Method",
+        [
+            "Electronic check",
+            "Mailed check",
+            "Bank transfer (automatic)",
+            "Credit card (automatic)"
+        ]
+    )
+    MonthlyCharges = st.number_input(
+        "Monthly Charges ($)", min_value=0.0, max_value=200.0, value=70.0)
     TotalCharges = st.number_input(
         "Total Charges ($)", min_value=0.0, max_value=10000.0, value=1000.0)
-
-st.markdown("---")
 
 # --- Load model, preprocessor, and feature names ---
 

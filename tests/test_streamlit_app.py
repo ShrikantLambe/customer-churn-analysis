@@ -1,5 +1,4 @@
 import unittest
-import os
 
 
 class TestStreamlitApp(unittest.TestCase):
