@@ -91,12 +91,29 @@ with center_col:
     if st.button("Predict Churn Probability", use_container_width=True):
         # Build input in the correct order
         input_data = [
-            gender, SeniorCitizen, Partner, Dependents, tenure, PhoneService, MultipleLines,
-            InternetService, OnlineSecurity, OnlineBackup, DeviceProtection, TechSupport,
-            StreamingTV, StreamingMovies, Contract, PaperlessBilling, PaymentMethod,
-            MonthlyCharges, TotalCharges
+            gender,
+            SeniorCitizen,
+            Partner,
+            Dependents,
+            tenure,
+            PhoneService,
+            MultipleLines,
+            InternetService,
+            OnlineSecurity,
+            OnlineBackup,
+            DeviceProtection,
+            TechSupport,
+            StreamingTV,
+            StreamingMovies,
+            Contract,
+            PaperlessBilling,
+            PaymentMethod,
+            MonthlyCharges,
+            TotalCharges
         ]
-        X_input_df = pd.DataFrame([input_data], columns=feature_names)
+        X_input_df = pd.DataFrame(
+            [input_data], columns=feature_names
+        )
         X_processed = preprocessor.transform(X_input_df)
         prob = model.predict_proba(X_processed)[0, 1]
         # Risk category

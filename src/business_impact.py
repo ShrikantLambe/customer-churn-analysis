@@ -31,8 +31,12 @@ def simulate_business_impact(y_true, y_proba, monthly_revenue=70, intervention_e
     print(f"Top {int(top_pct*100)}% high-risk customers targeted: {n_target}")
     print(f"Actual churners in targeted group: {actual_churners_in_top}")
     print(f"If intervention reduces churn by {int(intervention_effect*100)}%:")
-    print(f"  → Estimated monthly revenue saved: ${monthly_revenue_saved:,.2f}")
-    print(f"  → Estimated annual revenue saved:  ${annual_revenue_saved:,.2f}")
+    print(
+        f"  → Estimated monthly revenue saved: ${monthly_revenue_saved:,.2f}"
+    )
+    print(
+        f"  → Estimated annual revenue saved:  ${annual_revenue_saved:,.2f}"
+    )
     print("\nBusiness Explanation:")
     print(
         f"By focusing retention efforts on the top {int(top_pct*100)}% of "
@@ -42,6 +46,6 @@ def simulate_business_impact(y_true, y_proba, monthly_revenue=70, intervention_e
         f"in this group, the company could save approximately "
         f"${monthly_revenue_saved:,.0f} per month, or "
         f"${annual_revenue_saved:,.0f} per year in recurring revenue. "
-        f"This quantifies the financial value of predictive churn modeling and "
-        f"targeted interventions."
+        f"This quantifies the financial value of predictive churn modeling "
+        f"and targeted interventions."
     )
