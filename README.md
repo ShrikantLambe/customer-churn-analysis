@@ -9,6 +9,22 @@ A production-ready, modular, and well-documented machine learning project for pr
 - Reproducible experiments with config and logging
 - Unit tests and best practices for production
 
+## 🚀 Production-Ready Features
+
+### Versioned Models
+- Models, preprocessors, and feature names are saved with version tags (e.g., `v1`, `v2`).
+- Update `model_version` in `config.yaml` to control versioning.
+
+### CI Automation
+- GitHub Actions workflow in `.github/workflows/ci.yml` runs linting and tests on every push/PR.
+
+### Business Workflow Integration
+- A FastAPI microservice is provided in `api/app.py` for programmatic prediction:
+  ```bash
+  uvicorn api.app:app --reload
+  ```
+- POST to `/predict` with a JSON dict of features matching the training columns.
+
 ## 📁 Project Structure
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for a detailed breakdown.
 

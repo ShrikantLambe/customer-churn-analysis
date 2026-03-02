@@ -22,7 +22,7 @@ def load_data(path):
     return pd.read_csv(path)
 
 
-def preprocess_data(df, config, target_col='Churn'):
+def preprocess_data(df, config, target_col='Churn', return_preprocessor=False, return_feature_names=False):
     """
     Preprocess the Telco Customer Churn dataset using config.
     - Separates numerical and categorical features
@@ -37,6 +37,7 @@ def preprocess_data(df, config, target_col='Churn'):
     Returns:
         X_train, X_test, y_train, y_test: Processed splits
     """
+
     # Drop customerID if present
     if 'customerID' in df.columns:
         df = df.drop('customerID', axis=1)
@@ -45,6 +46,7 @@ def preprocess_data(df, config, target_col='Churn'):
     y = df[target_col].map(
         {'Yes': 1, 'No': 0}) if df[target_col].dtype == 'O' else df[target_col]
     X = df.drop(target_col, axis=1)
+    feature_names = X.columns.tolist()
 
     # Identify numerical and categorical columns
     num_cols = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
@@ -84,4 +86,11 @@ def preprocess_data(df, config, target_col='Churn'):
 
     logging.info(
         f"Preprocessing complete. Train shape: {X_train_processed.shape}, Test shape: {X_test_processed.shape}")
+
+    if return_preprocessor and return_feature_names:
+        return X_train_processed, X_test_processed, y_train.values, y_test.values, preprocessor, feature_names
+    if return_preprocessor:
+        return X_train_processed, X_test_processed, y_train.values, y_test.values, preprocessor
+    if return_feature_names:
+        return X_train_processed, X_test_processed, y_train.values, y_test.values, feature_names
     return X_train_processed, X_test_processed, y_train.values, y_test.values

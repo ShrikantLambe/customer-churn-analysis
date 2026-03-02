@@ -1,24 +1,26 @@
 name: CI
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: "3.10"
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install -e .
           pip install -r requirements.txt
+      - name: Lint
+        run: |
+          .venv/bin/pip install flake8
+          .venv/bin/flake8 src app
       - name: Run tests
         run: |
-          python -m unittest discover tests
+          .venv/bin/python -m unittest discover tests
