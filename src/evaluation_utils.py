@@ -2,7 +2,11 @@
 Evaluation utilities for classification models
 """
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, roc_curve, classification_report
+from sklearn.metrics import (
+    confusion_matrix,
+    roc_curve,
+    classification_report
+)
 import numpy as np
 
 

@@ -7,7 +7,13 @@ import logging
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    roc_auc_score
+)
 
 
 def train_logistic_regression(X_train, y_train, config, cv=5):
@@ -71,8 +77,11 @@ def evaluate_model(model, X_test, y_test):
         dict: Dictionary of evaluation metrics.
     """
     y_pred = model.predict(X_test)
-    y_proba = model.predict_proba(X_test)[:, 1] if hasattr(
-        model, 'predict_proba') else None
+    y_proba = (
+        model.predict_proba(X_test)[:, 1]
+        if hasattr(model, 'predict_proba')
+        else None
+    )
     acc = accuracy_score(y_test, y_pred)
     prec = precision_score(y_test, y_pred)
     rec = recall_score(y_test, y_pred)
