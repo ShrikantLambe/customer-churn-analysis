@@ -4,6 +4,7 @@ Script to train and save a baseline churn prediction model
 import yaml
 import pandas as pd
 import pickle
+import os
 from src.preprocessing import preprocess_data, load_data
 from src.model_training import train_logistic_regression
 
