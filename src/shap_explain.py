@@ -34,12 +34,15 @@ def explain_with_shap_rf(model, X, feature_names=None, max_display=15):
     plt.show()
 
     # Comments for interpretation:
-    print("""
-    SHAP summary plot interpretation:
-    - Each point represents a customer (row) and its SHAP value for a feature.
-    - Features are ranked by importance (top = most impactful for churn prediction).
-    - Color shows feature value (red = high, blue = low).
-    - SHAP value (x-axis) shows impact on model output: right = higher churn risk, left = lower.
-    - Example: If 'tenure' is blue on the right, low tenure increases churn risk.
-    Use this plot to identify which features most influence churn and how their values affect predictions.
-    """)
+    print(
+        "SHAP summary plot interpretation:\n"
+        "- Each point represents a customer (row) and its SHAP value for a feature.\n"
+        "- Features are ranked by importance (top = most impactful for churn prediction).\n"
+        "- Color shows feature value (red = high, blue = low).\n"
+        "- SHAP value (x-axis) shows impact on model output: "
+        "right = higher churn risk, left = lower.\n"
+        "- Example: If 'tenure' is blue on the right, "
+        "low tenure increases churn risk.\n"
+        "Use this plot to identify which features most influence churn and how their values "
+        "affect predictions."
+    )
