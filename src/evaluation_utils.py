@@ -25,8 +25,12 @@ def plot_confusion_matrix(y_true, y_pred, class_names=None, title='Confusion Mat
         xlabel='Predicted label',
         title=title
     )
-    plt.setp(ax.get_xticklabels(), rotation=45,
-             ha="right", rotation_mode="anchor")
+    plt.setp(
+        ax.get_xticklabels(),
+        rotation=45,
+        ha="right",
+        rotation_mode="anchor"
+    )
     thresh = cm.max() / 2.
     for i in range(cm.shape[0]):
         for j in range(cm.shape[1]):

@@ -44,7 +44,8 @@ def preprocess_data(df, config, target_col='Churn', return_preprocessor=False, r
     # Convert target to binary if needed
     y = (
         df[target_col].map({'Yes': 1, 'No': 0})
-        if df[target_col].dtype == 'O' else df[target_col]
+        if df[target_col].dtype == 'O'
+        else df[target_col]
     )
     X = df.drop(target_col, axis=1)
     feature_names = X.columns.tolist()
@@ -79,7 +80,11 @@ def preprocess_data(df, config, target_col='Churn', return_preprocessor=False, r
     random_seed = config.get('random_seed', 42)
     stratify = y if split_cfg.get('stratify', True) else None
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=test_size, random_state=random_seed, stratify=stratify
+        X,
+        y,
+        test_size=test_size,
+        random_state=random_seed,
+        stratify=stratify
     )
 
     # Fit and transform

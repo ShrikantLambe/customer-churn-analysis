@@ -27,7 +27,9 @@ def explain_with_shap_rf(model, X, feature_names=None, max_display=15):
         max_display=max_display,
         show=False
     )
-    plt.title('SHAP Summary Plot: Top Features Driving Churn')
+    plt.title(
+        'SHAP Summary Plot: Top Features Driving Churn'
+    )
     plt.tight_layout()
     plt.show()
 

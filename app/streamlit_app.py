@@ -15,7 +15,10 @@ with demographic_cols:
     st.subheader("Demographics")
     gender = st.selectbox("Gender", ["Female", "Male"])
     SeniorCitizen = st.selectbox(
-        "Senior Citizen", [0, 1], format_func=lambda x: "Yes" if x == 1 else "No")
+        "Senior Citizen",
+        [0, 1],
+        format_func=lambda x: "Yes" if x == 1 else "No"
+    )
     Partner = st.selectbox("Partner", ["Yes", "No"])
     Dependents = st.selectbox("Dependents", ["Yes", "No"])
     tenure = st.number_input(
@@ -70,7 +73,7 @@ def load_model_preprocessor_and_features():
     version = config['output']['model_version']
     model_path = os.path.join(model_dir, f"best_churn_model_{version}.pkl")
     preprocessor_path = os.path.join(model_dir, f"preprocessor_{version}.pkl")
-    feature_names_path = os.path.join(model_dir, f"feature_names_v1.pkl")
+    feature_names_path = os.path.join(model_dir, "feature_names_v1.pkl")
     with open(model_path, "rb") as f:
         model = pickle.load(f)
     with open(preprocessor_path, "rb") as f:
@@ -113,9 +116,11 @@ with center_col:
             unsafe_allow_html=True
         )
         st.markdown(
-            f"**Risk Category:** <span style='color:{color}; font-weight:bold; font-size:1.3em'>{risk}</span>",
+            f"**Risk Category:** <span style='color:{color}; font-weight:bold; "
+            f"font-size:1.3em'>{risk}</span>",
             unsafe_allow_html=True
         )
         st.info(
-            "Interpretation: High risk customers may benefit from targeted retention offers."
+            "Interpretation: High risk customers may benefit from targeted "
+            "retention offers."
         )
