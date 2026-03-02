@@ -79,8 +79,12 @@ def get_feature_importance(model, feature_names=None, top_n=10):
     indices = np.argsort(importances)[::-1][:top_n]
     plt.figure(figsize=(8, 5))
     plt.bar(range(len(indices)), importances[indices], align='center')
-    plt.xticks(range(len(indices)), [feature_names[i]
-               for i in indices], rotation=45, ha='right')
+    plt.xticks(
+        range(len(indices)),
+        [feature_names[i] for i in indices],
+        rotation=45,
+        ha='right'
+    )
     plt.title(f'Top {top_n} {name}')
     plt.tight_layout()
     plt.show()

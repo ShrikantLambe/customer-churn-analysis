@@ -1,8 +1,6 @@
 from config_utils import load_config
 import streamlit as st
-import numpy as np
 import pickle
-import logging
 import os
 import pandas as pd
 
@@ -48,10 +46,6 @@ with billing_cols:
     Contract = st.selectbox(
         "Contract", ["Month-to-month", "One year", "Two year"])
     PaperlessBilling = st.selectbox("Paperless Billing", ["Yes", "No"])
-    PaymentMethod = st.selectbox("Payment Method", [
-        "Electronic check", "Mailed check", "Bank transfer (automatic)", "Credit card (automatic)"])
-    MonthlyCharges = st.number_input(
-        "Monthly Charges ($)", min_value=0.0, max_value=200.0, value=70.0)
     PaymentMethod = st.selectbox(
         "Payment Method",
         [
@@ -115,8 +109,11 @@ with center_col:
         st.markdown("---")
         st.header("Prediction Result")
         st.markdown(
-            f"**Churn Probability:** <span style='font-size:1.5em'>{prob:.2%}</span>", unsafe_allow_html=True)
+            f"**Churn Probability:** <span style='font-size:1.5em'>{prob:.2%}</span>",
+            unsafe_allow_html=True)
         st.markdown(
-            f"**Risk Category:** <span style='color:{color}; font-weight:bold; font-size:1.3em'>{risk}</span>", unsafe_allow_html=True)
+            f"**Risk Category:** <span style='color:{color}; font-weight:bold; font-size:1.3em'>{risk}</span>",
+            unsafe_allow_html=True)
         st.info(
-            "Interpretation: High risk customers may benefit from targeted retention offers.")
+            "Interpretation: High risk customers may benefit from targeted retention offers."
+        )

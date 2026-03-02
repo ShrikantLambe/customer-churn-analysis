@@ -21,7 +21,11 @@ def explain_with_shap_rf(model, X, feature_names=None, max_display=15):
     # For binary classification, shap_values[1] corresponds to the positive class (churn)
     plt.figure(figsize=(10, 6))
     shap.summary_plot(
-        shap_values[1], X, feature_names=feature_names, max_display=max_display, show=False
+        shap_values[1],
+        X,
+        feature_names=feature_names,
+        max_display=max_display,
+        show=False
     )
     plt.title('SHAP Summary Plot: Top Features Driving Churn')
     plt.tight_layout()

@@ -42,15 +42,18 @@ def preprocess_data(df, config, target_col='Churn', return_preprocessor=False, r
         df = df.drop('customerID', axis=1)
 
     # Convert target to binary if needed
-    y = df[target_col].map(
-        {'Yes': 1, 'No': 0}) if df[target_col].dtype == 'O' else df[target_col]
+    y = (
+        df[target_col].map({'Yes': 1, 'No': 0})
+        if df[target_col].dtype == 'O' else df[target_col]
+    )
     X = df.drop(target_col, axis=1)
     feature_names = X.columns.tolist()
 
     # Identify numerical and categorical columns
     num_cols = X.select_dtypes(include=['int64', 'float64']).columns.tolist()
     cat_cols = X.select_dtypes(
-        include=['object', 'category', 'bool']).columns.tolist()
+        include=['object', 'category', 'bool']
+    ).columns.tolist()
 
     # Preprocessing for numerical data
     num_pipeline = Pipeline([
@@ -84,7 +87,9 @@ def preprocess_data(df, config, target_col='Churn', return_preprocessor=False, r
     X_test_processed = preprocessor.transform(X_test)
 
     logging.info(
-        f"Preprocessing complete. Train shape: {X_train_processed.shape}, Test shape: {X_test_processed.shape}")
+        f"Preprocessing complete. Train shape: {X_train_processed.shape}, "
+        f"Test shape: {X_test_processed.shape}"
+    )
 
     if return_preprocessor and return_feature_names:
         return X_train_processed, X_test_processed, y_train.values, y_test.values, preprocessor, feature_names

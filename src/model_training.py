@@ -3,6 +3,7 @@ Model training module for Customer Churn Prediction
 """
 import pickle
 import os
+import logging
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
