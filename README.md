@@ -1,13 +1,23 @@
 # Customer Churn Analysis
 
-A production-ready, modular, and well-documented machine learning project for predicting customer churn using the Telco Customer Churn dataset.
+A production-ready, modular, and well-documented machine learning and AI project for predicting customer churn using the Telco Customer Churn dataset.
 
 ## 🚀 Project Features
 - End-to-end ML workflow: EDA, preprocessing, training, evaluation, business impact simulation, and deployment
 - Modular codebase with clear separation of concerns
-- Streamlit app for interactive churn prediction
+- Streamlit app for interactive churn prediction and advanced AI features
+- LLM-powered Copilot for conversational queries, retention strategy, and explainability
 - Reproducible experiments with config and logging
 - Unit tests and best practices for production
+
+## 🤖 Advanced AI Features
+- **Conversational Data Query:** Ask natural language questions about churn data
+- **Retention Strategy Advisor:** AI-powered recommendations for customer retention
+- **Executive Churn Report:** Auto-generated business reports with LLM explanations
+- **Copilot Panel:** Chat with an AI assistant for business and technical queries
+- **Explainability:** SHAP integration and LLM explanations for model predictions
+- **Persona Generation:** Segmentation and persona cards for actionable insights
+- **Robust Error Handling:** UI and backend handle missing data, columns, and segment queries gracefully
 
 ## 🚀 Production-Ready Features
 
@@ -29,9 +39,9 @@ A production-ready, modular, and well-documented machine learning project for pr
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for a detailed breakdown.
 
 ## 🗂️ Key Directories
-- `src/` — Core source code (preprocessing, training, evaluation, utils)
+- `src/` — Core source code (preprocessing, training, evaluation, utils, LLM modules)
 - `notebooks/` — Jupyter notebooks for EDA and prototyping
-- `app/` — Streamlit app for interactive prediction
+- `app/` — Streamlit app for interactive prediction and Copilot
 - `models/` — Saved model files (not versioned in git)
 - `data/` — Raw and processed datasets (not versioned in git)
 - `tests/` — Unit and integration tests
@@ -39,7 +49,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for a detailed breakdown.
 
 ## 🛠️ Tech Stack
 - Python 3.8+
-- pandas, numpy, scikit-learn, matplotlib, seaborn, shap, streamlit, joblib
+- pandas, numpy, scikit-learn, matplotlib, seaborn, shap, streamlit, joblib, openai, pyyaml, fastapi
 
 ## ⚙️ Setup & Installation
 1. Clone the repo and create a virtual environment:
@@ -50,20 +60,24 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for a detailed breakdown.
    source .venv/bin/activate
    pip install -r requirements.txt
    ```
-2. Download the Telco Customer Churn dataset and place it in `data/`.
-3. Run tests:
+2. Download the Telco Customer Churn dataset and place it in `data/` as either `churn_data.csv` or `WA_Fn-UseC_-Telco-Customer-Churn.csv`.
+3. Set your OpenAI API key in your environment:
+   ```bash
+   export OPENAI_API_KEY=sk-...
+   ```
+4. Run tests:
    ```bash
    python -m unittest discover tests
    ```
-4. Train and save a model:
+5. Train and save a model:
    ```bash
    python train_and_save_model.py
    ```
-5. Simulate business impact:
+6. Simulate business impact:
    ```bash
    python run_business_impact.py
    ```
-6. Launch the Streamlit app:
+7. Launch the Streamlit app:
    ```bash
    streamlit run app/streamlit_app.py
    ```
@@ -78,42 +92,11 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 ## 📄 License
 MIT License
 
-## Installation (Development Mode)
-
-1. Ensure you have Python 3.8+ and pip installed.
-2. From the project root, install the package in editable mode:
-
-```bash
-pip install -e .
-```
-
-This will make the `src` package importable from anywhere in your project, including Streamlit apps.
-
-## Running the Streamlit App
-
-**Important:** Always run Streamlit from the project root directory, _not_ from inside the `app/` folder. This ensures Python can find the `src` package.
-
-From the project root, run:
-
-```bash
-streamlit run app/streamlit_app.py
-```
-
-If you run Streamlit from inside the `app/` directory, you will get `ModuleNotFoundError: No module named 'src'`.
-
-## Project Structure
-
-```
-customer-churn-analysis/
-├── src/
-│   ├── config_utils.py
-│   ├── ...
-├── app/
-│   └── streamlit_app.py
-├── pyproject.toml
-├── requirements.txt
-└── README.md
-```
+## Troubleshooting & FAQ
+- **ModuleNotFoundError:** Always run Streamlit from the project root, not inside `app/`.
+- **Dataset not found:** Place your CSV in `data/` as `churn_data.csv` or `WA_Fn-UseC_-Telco-Customer-Churn.csv`.
+- **OpenAI API errors:** Ensure your API key is set and you have internet access.
+- **Copilot/LLM not responding:** Check your API key and rate limits.
 
 ## Notes
 - No sys.path hacks are needed.
